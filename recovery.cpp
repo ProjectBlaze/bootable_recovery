@@ -820,12 +820,12 @@ Device::BuiltinAction start_recovery(Device* device, const std::vector<std::stri
   // the first instance of "-[0-9]{8}-" (if any) has the desired date.
   std::string ver = android::base::GetProperty("ro.xtended.version", "");
   std::smatch ver_date_match;
-  std::regex_search(ver, ver_date_match, std::regex("-(\\d{8})-"));
+  std::regex_search(ver, ver_date_match, std::regex("-(\\d{8}(_\\d{6})?)-"));
   std::string ver_date = ver_date_match.str(1);  // Empty if no match.
 
   std::vector<std::string> title_lines = {
     "Version " + android::base::GetProperty("ro.xtended.build.version", "(unknown)") +
-        " (" + ver_date + ")",
+        "-" + ver_date,
   };
   if (android::base::GetBoolProperty("ro.build.ab_update", false)) {
     std::string slot = android::base::GetProperty("ro.boot.slot_suffix", "");
