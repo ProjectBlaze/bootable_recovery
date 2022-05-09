@@ -75,7 +75,6 @@ static constexpr int VERIFICATION_PROGRESS_TIME = 60;
 static constexpr float VERIFICATION_PROGRESS_FRACTION = 0.25;
 // The charater used to separate dynamic fingerprints. e.x. sargo|aosp-sargo
 static const char* FINGERPRING_SEPARATOR = "|";
-static const char* DEVICE_SEPARATOR = ",";
 static std::condition_variable finish_log_temperature;
 static bool isInStringList(const std::string& target_token, const std::string& str_list,
                            const std::string& deliminator);
